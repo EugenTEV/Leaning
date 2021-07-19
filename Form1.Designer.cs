@@ -30,6 +30,12 @@ namespace WindowsFormsApp2
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tbTo = new System.Windows.Forms.TextBox();
+            this.tbFrom = new System.Windows.Forms.TextBox();
+            this.btnConvert = new System.Windows.Forms.Button();
+            this.cbTo = new System.Windows.Forms.ComboBox();
+            this.cbFrom = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnCreatPassword = new System.Windows.Forms.Button();
@@ -41,7 +47,10 @@ namespace WindowsFormsApp2
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSwap = new System.Windows.Forms.Button();
+            this.cbMetric = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassLenght)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -49,6 +58,7 @@ namespace WindowsFormsApp2
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -57,6 +67,80 @@ namespace WindowsFormsApp2
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(633, 419);
             this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.cbMetric);
+            this.tabPage3.Controls.Add(this.btnSwap);
+            this.tabPage3.Controls.Add(this.tbTo);
+            this.tabPage3.Controls.Add(this.tbFrom);
+            this.tabPage3.Controls.Add(this.btnConvert);
+            this.tabPage3.Controls.Add(this.cbTo);
+            this.tabPage3.Controls.Add(this.cbFrom);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(625, 390);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Конвертер";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tbTo
+            // 
+            this.tbTo.Location = new System.Drawing.Point(397, 170);
+            this.tbTo.Name = "tbTo";
+            this.tbTo.ReadOnly = true;
+            this.tbTo.Size = new System.Drawing.Size(121, 22);
+            this.tbTo.TabIndex = 4;
+            // 
+            // tbFrom
+            // 
+            this.tbFrom.Location = new System.Drawing.Point(9, 171);
+            this.tbFrom.Name = "tbFrom";
+            this.tbFrom.Size = new System.Drawing.Size(121, 22);
+            this.tbFrom.TabIndex = 3;
+            this.tbFrom.Text = "1";
+            // 
+            // btnConvert
+            // 
+            this.btnConvert.Location = new System.Drawing.Point(183, 169);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(160, 23);
+            this.btnConvert.TabIndex = 2;
+            this.btnConvert.Text = "Конвертировать";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
+            // 
+            // cbTo
+            // 
+            this.cbTo.FormattingEnabled = true;
+            this.cbTo.Items.AddRange(new object[] {
+            "мм",
+            "см",
+            "дм",
+            "м",
+            "км",
+            "мили"});
+            this.cbTo.Location = new System.Drawing.Point(397, 118);
+            this.cbTo.Name = "cbTo";
+            this.cbTo.Size = new System.Drawing.Size(56, 24);
+            this.cbTo.TabIndex = 1;
+            this.cbTo.Text = "мм";
+            // 
+            // cbFrom
+            // 
+            this.cbFrom.FormattingEnabled = true;
+            this.cbFrom.Items.AddRange(new object[] {
+            "мм",
+            "см",
+            "дм",
+            "м",
+            "км",
+            "мили"});
+            this.cbFrom.Location = new System.Drawing.Point(9, 118);
+            this.cbFrom.Name = "cbFrom";
+            this.cbFrom.Size = new System.Drawing.Size(48, 24);
+            this.cbFrom.TabIndex = 0;
+            this.cbFrom.Text = "мм";
             // 
             // tabPage1
             // 
@@ -178,6 +262,29 @@ namespace WindowsFormsApp2
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
+            // btnSwap
+            // 
+            this.btnSwap.Location = new System.Drawing.Point(224, 118);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(75, 23);
+            this.btnSwap.TabIndex = 5;
+            this.btnSwap.Text = "<->";
+            this.btnSwap.UseVisualStyleBackColor = true;
+            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
+            // 
+            // cbMetric
+            // 
+            this.cbMetric.FormattingEnabled = true;
+            this.cbMetric.Items.AddRange(new object[] {
+            "Длина",
+            "Вес"});
+            this.cbMetric.Location = new System.Drawing.Point(183, 54);
+            this.cbMetric.Name = "cbMetric";
+            this.cbMetric.Size = new System.Drawing.Size(160, 24);
+            this.cbMetric.TabIndex = 6;
+            this.cbMetric.Text = "Длина";
+            this.cbMetric.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,6 +297,8 @@ namespace WindowsFormsApp2
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassLenght)).EndInit();
@@ -214,6 +323,14 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.NumericUpDown nudPassLenght;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnCreatPassword;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox tbTo;
+        private System.Windows.Forms.TextBox tbFrom;
+        private System.Windows.Forms.Button btnConvert;
+        private System.Windows.Forms.ComboBox cbTo;
+        private System.Windows.Forms.ComboBox cbFrom;
+        private System.Windows.Forms.Button btnSwap;
+        private System.Windows.Forms.ComboBox cbMetric;
     }
 }
 

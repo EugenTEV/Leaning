@@ -31,20 +31,20 @@ namespace WindowsFormsApp2
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.btnCreatPassword = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nudPassLenght = new System.Windows.Forms.NumericUpDown();
+            this.clbPassword = new System.Windows.Forms.CheckedListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clbPassword = new System.Windows.Forms.CheckedListBox();
-            this.nudPassLenght = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassLenght)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -60,8 +60,8 @@ namespace WindowsFormsApp2
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.tbPassword);
+            this.tabPage1.Controls.Add(this.btnCreatPassword);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.nudPassLenght);
             this.tabPage1.Controls.Add(this.clbPassword);
@@ -73,12 +73,75 @@ namespace WindowsFormsApp2
             this.tabPage1.Text = "Генератор";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(8, 203);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(286, 22);
+            this.tbPassword.TabIndex = 4;
+            // 
+            // btnCreatPassword
+            // 
+            this.btnCreatPassword.Location = new System.Drawing.Point(27, 158);
+            this.btnCreatPassword.Name = "btnCreatPassword";
+            this.btnCreatPassword.Size = new System.Drawing.Size(178, 23);
+            this.btnCreatPassword.TabIndex = 3;
+            this.btnCreatPassword.Text = "Создать пароль";
+            this.btnCreatPassword.UseVisualStyleBackColor = true;
+            this.btnCreatPassword.Click += new System.EventHandler(this.btnCreatPassword_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Длина пароля";
+            // 
+            // nudPassLenght
+            // 
+            this.nudPassLenght.Location = new System.Drawing.Point(156, 121);
+            this.nudPassLenght.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPassLenght.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.nudPassLenght.Name = "nudPassLenght";
+            this.nudPassLenght.Size = new System.Drawing.Size(49, 22);
+            this.nudPassLenght.TabIndex = 1;
+            this.nudPassLenght.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // clbPassword
+            // 
+            this.clbPassword.CheckOnClick = true;
+            this.clbPassword.FormattingEnabled = true;
+            this.clbPassword.Items.AddRange(new object[] {
+            "Цифры",
+            "Прописные буквы",
+            "Строчные буквы",
+            "Спецсимволы"});
+            this.clbPassword.Location = new System.Drawing.Point(8, 32);
+            this.clbPassword.Name = "clbPassword";
+            this.clbPassword.Size = new System.Drawing.Size(286, 72);
+            this.clbPassword.TabIndex = 0;
+            this.clbPassword.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(725, 270);
+            this.tabPage2.Size = new System.Drawing.Size(625, 390);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -112,70 +175,8 @@ namespace WindowsFormsApp2
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // clbPassword
-            // 
-            this.clbPassword.CheckOnClick = true;
-            this.clbPassword.FormattingEnabled = true;
-            this.clbPassword.Items.AddRange(new object[] {
-            "Цифры",
-            "Прописные буквы",
-            "Строчные буквы",
-            "Спецсимволы"});
-            this.clbPassword.Location = new System.Drawing.Point(8, 32);
-            this.clbPassword.Name = "clbPassword";
-            this.clbPassword.Size = new System.Drawing.Size(286, 72);
-            this.clbPassword.TabIndex = 0;
-            this.clbPassword.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // nudPassLenght
-            // 
-            this.nudPassLenght.Location = new System.Drawing.Point(156, 121);
-            this.nudPassLenght.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nudPassLenght.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.nudPassLenght.Name = "nudPassLenght";
-            this.nudPassLenght.Size = new System.Drawing.Size(49, 22);
-            this.nudPassLenght.TabIndex = 1;
-            this.nudPassLenght.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Длина пароля";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(27, 158);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Создать пароль";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(8, 203);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 22);
-            this.textBox1.TabIndex = 4;
             // 
             // Form1
             // 
@@ -187,12 +188,13 @@ namespace WindowsFormsApp2
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPassLenght)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPassLenght)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,8 +212,8 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.CheckedListBox clbPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nudPassLenght;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Button btnCreatPassword;
     }
 }
 
